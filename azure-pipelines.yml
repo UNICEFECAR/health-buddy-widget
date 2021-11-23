@@ -15,7 +15,7 @@ steps:
   condition: 
   inputs:
     SourcePath: '**'
-    azureSubscription: 'Pay-As-You-Go (973ea665-13d5-485a-87f1-72b28fffa950)'
+    azureSubscription: 'Azure JCW'
     Destination: 'AzureBlob'
     storage: 'healthbuddyassets'
     ContainerName: '$web'
