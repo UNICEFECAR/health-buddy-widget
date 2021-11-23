@@ -10,6 +10,16 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+
+- task: AzureFileCopy@4
+  condition: 
+  inputs:
+    SourcePath: '**'
+    azureSubscription: 'Pay-As-You-Go (973ea665-13d5-485a-87f1-72b28fffa950)'
+    Destination: 'AzureBlob'
+    storage: 'healthbuddyassets'
+    ContainerName: '$web'
+
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(build.sourcesDirectory)'
