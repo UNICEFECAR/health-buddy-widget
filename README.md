@@ -5,10 +5,11 @@
 1. Insert the link tag and script tag into the head of the page you want the chat to be inserted into:
     ```js
     <link href="assets/css/chat.css" rel="stylesheet" />
+    <script src="assets/js/language.js"></script>
     <script src="assets/js/bot.js"></script>
     ```
-2. Check that the referenced css o that you have copied is the one in `assets/css/chat.css`.
-3. Check that the referenced javascript file that you have copied is the one in `assets/js/bot.js`
+2. Check that the referenced css file that you have copied is the one in `assets/css/chat.css`
+3. Check that the referenced javascript files that you have copied is the one in `assets/js` folder
 4. Insert a div with the id `webchat` in the body of the page that the chat will be inserted into:
     ```html
     <div id="webchat" />
@@ -20,29 +21,23 @@
             try {
                 document.createEvent("TouchEvent");
                 return true;
-            } catch (e) {
+            } 
+            catch (e) {
                 return false;
             }
         }
-        var userLang = 'en';
-        // detecting user's browser language
-        //var userLang = navigator.language.slice(0, 2);
-        var initPayload = 'chat ' + userLang;
-
-        var buttonText = 'Ask your Covid-19 question';
         var setButtonText = function () {
             const paragraph = document.createElement("p");
             document.getElementsByClassName("push-launcher")[0].appendChild(paragraph);
             document.getElementsByClassName("push-launcher")[0].getElementsByTagName("p")[0].innerText = buttonText;
         }
-
         var config = {
             selector: "#webchat",
             initPayload: initPayload,
-            channelUuid: "b46efd0e-849d-45c9-b056-370a71be6d60",
+            channelUuid: "f2cc9ec6-07f1-407a-8948-ece57761d88e",
             host: "https://rapidpro.ilhasoft.mobi",
             title: "HealthBuddy",
-            inputTextFieldHint: "Type your question here",
+            inputTextFieldHint: inputText,
             profileAvatar: "./assets/img/chat-avatar.svg",
             disableTooltips: true,
             docViewer: true,
