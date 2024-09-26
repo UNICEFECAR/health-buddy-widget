@@ -1,0 +1,27 @@
+# HTML
+# Archive your static HTML project and save it with the build record.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: windows-latest
+
+steps:
+
+- task: AzureFileCopy@4
+  condition: 
+  inputs:
+    SourcePath: '**'
+    azureSubscription: 'Azure JCW'
+    Destination: 'AzureBlob'
+    storage: 'healthbuddyassets'
+    ContainerName: '$web'
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(build.sourcesDirectory)'
+    includeRootFolder: false
+- task: PublishBuildArtifacts@1
